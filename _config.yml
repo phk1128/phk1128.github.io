@@ -16,7 +16,7 @@ timezone: Asia/Seoul
 
 title: Gyun log # the main title
 
-tagline: 🤖 # it will display as the sub-title
+#tagline: 🤖 # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
   A minimal, responsive, and feature-rich Jekyll theme tailored for Spring Boot, Java, and JPA developers.
