@@ -167,6 +167,8 @@ public class UserService {
 
 SpringBoot가 자동으로 해주는 부분을 코드로 표현하자면 아래와 같습니다.
 
+#### AppConfig
+
 ```java
 
 @Configration
