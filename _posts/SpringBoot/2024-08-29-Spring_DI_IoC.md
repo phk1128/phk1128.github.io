@@ -136,7 +136,7 @@ public class JpaUserRepository implements UserRepository {
 - 이를 통해 비즈니스 로직은 데이터 접근 방식을 특정 구현체에 의존하지 않고, `UserRepository` 인터페이스에 의존함으로써<br>
   유연성을 확보할 수 있습니다.(다형성)
 - 즉, 외부에서는 `JdbcUserRepository`와 `JpaUserRepository`가 어떻게 구현 되어 있는지 알 수도 없고, 알 필요도 없습니다.(추상화)
-- `@Repository`애노테이션이 붙어있어 프로젝트 run시 Bean으로 등록됩니다.
+- UserRepository는 `@Repository` 애노테이션이 붙어있어 프로젝트 run시 Bean으로 등록됩니다.
 
 #### UserService
 
