@@ -3,10 +3,10 @@ title: Spring DI 및 IoC (with 추상화, 다형성)
 date: 2024-08-29
 categories: [ SpringBoot ]
 tags: [ SpringBoot,Spring DI,Spring IoC,객체 지향,추상화,다형성 ]
-image: assets/img/spring/spring_logo.png
+image: assets/posts/spring_logo.png
 ---
 
-## Intro
+## 🎬Intro
 
 > Spring DI, IoC와 추상화 및 다형성에 대해 알아봅시다.
 

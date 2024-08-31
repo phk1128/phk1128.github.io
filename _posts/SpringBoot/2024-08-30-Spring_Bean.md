@@ -3,7 +3,7 @@ title: Spring Bean
 date: 2024-08-30
 categories: [ SpringBoot ]
 tags: [ SpringBoot,Spring Bean ]
-image: assets/img/spring/spring_logo.png
+image: assets/posts/spring_logo.png
 ---
 
 ## Intro
