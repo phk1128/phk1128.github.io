@@ -92,7 +92,9 @@ public interface MyEntityRepository extends JpaRepository<MyEntity, Long> {
 #### 예시 테스트 코드
 
 ```java
-@SpringBootTest
+@DataJpaTest
+// 어플리케이션에서 설정한 DB를 그대로 사용, application.yml에 설정된 DB를 사용
+@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 class PersistenceTest {
 
   @Autowired
@@ -105,14 +107,12 @@ class PersistenceTest {
 
   private MyEntity myEntity2;
 
-
   @BeforeEach
   void setUpMyEntity() throws Exception {
     myEntity1 = MyEntity.builder()
       .id(1L)
       .name("myEntity1")
       .build();
-
 
     myEntity2 = MyEntity.builder()
       .id(null)
@@ -121,10 +121,8 @@ class PersistenceTest {
 
   }
 
-
   @DisplayName("영속성 컨텍스트 테스트")
   @Test
-  @Transactional
   void persistenceTest() throws Exception {
 
     // given
@@ -155,7 +153,7 @@ class PersistenceTest {
     System.out.println("쓰기 지연으로 UPDATE 쿼리는 커밋 시점에 나감");
     System.out.println("===============================");
 
-    System.out.println("======== 커밋 ==========");
+    System.out.println("======== DB 반영 ==========");
     em.flush();
     assertThat(myEntity1).isEqualTo(savedEntity1);
     assertThat(myEntity2).isEqualTo(myEntity1);
@@ -163,9 +161,6 @@ class PersistenceTest {
   }
 
 }
-
-
-
 ```
 - `case 1 (SELECT X INSERT O)` : myEntity1은 id 가 1이므로 이미 DB에 존재합니다. 따라서 persist 시점에 시퀀스 조회를 위해 SELECT 쿼리는 실행되지만, 커밋 시점에 INSERT 쿼리는 실행되지 않습니다.
 - `case 2 (SELECT X INSERT O)` : myEntity2는 ID가 null이므로 새로운 엔티티로 간주됩니다. 따라서 persist 시점에 시퀀스 조회를 위해 SELECT 쿼리가 실행되고, 커밋 시점에 INSERT 쿼리가 실행됩니다. (**_쓰기 지연_**)
@@ -196,7 +191,7 @@ Hibernate:
 ====== SELECT X UPDATE O ======
 쓰기 지연으로 UPDATE 쿼리는 커밋 시점에 나감
 ===============================
-======== 커밋 ==========
+======== DB 반영 ==========
 Hibernate: 
     insert 
     into
@@ -219,8 +214,9 @@ Hibernate:
 
 
 ### 참고
-> 스프링 부트 통합 테스트 환경에서 `@Transactional`이 붙어있을 경우 테스트 종료 시점에 자동으로 롤백이 됩니다.
-> 따라서 em.flush()를 통해 강제로 커밋을 해야 쓰기 지연 쿼리 로그를 볼 수 있습니다.
+> `@DataJpaTest`는 `@Transactional`을 감싸고 있습니다. 
+> 테스트 환경에서 `@Transactional`이 붙어있을 경우 테스트 종료 시점에 자동으로 롤백이 됩니다.
+> 따라서 em.flush()를 통해 강제로 DB 반영을 해야 쓰기 지연 쿼리 로그를 볼 수 있습니다.
 
 
 ## ✨Summary
@@ -228,6 +224,6 @@ Hibernate:
 - 1차 캐시를 통해 동일 트랜잭션 내에서 동일한 엔티티 조회 시 DB에 재접근하지 않고 캐시에서 반환합니다.
 - 변경 감지로 영속성 컨텍스트는 엔티티의 변경 사항을 추적하여, 트랜잭션 종료 시 DB에 자동으로 반영합니다.
 - 쓰기 지연을 통해 변경된 엔티티는 커밋 시점에 한 번에 DB에 반영되어, 효율적인 데이터 처리가 가능합니다.
-- 통합 테스트에서 @Transactional이 적용된 경우, 테스트 종료 시 자동 롤백되므로 flush()를 통해 쿼리 로그를 확인할 수 있습니다.
+- 테스트 환경에서 @Transactional이 적용된 경우, 테스트 종료 시 자동 롤백되므로 flush()를 통해 쿼리 로그를 확인할 수 있습니다.
 
 
