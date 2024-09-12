@@ -188,6 +188,12 @@ Prototype.destroy
 - 프로토타입빈은 서로 다른 인스턴스이므로 `prototypeCounter1`과 `prototypeCounter2`는 각각 다른 count를 참조하게 됩니다.
   따라서 각 인스턴스가 addCount()를 호출하면 서로 다른 count가 1번씩 증가하게 됩니다.
 
+### Reference
+> [스프링 핵심 원리 - 기본편](https://www.inflearn.com/course/%EC%8A%A4%ED%94%84%EB%A7%81-%ED%95%B5%EC%8B%AC-%EC%9B%90%EB%A6%AC-%EA%B8%B0%EB%B3%B8%ED%8E%B8/dashboard)
+
+### Continue
+> 싱글톤빈과 프로토타입빈을 함께 사용하는 예제
+>
 > [Spring 컨테이너와 빈 (2)](/posts/Spring_Bean(2))
 
 
