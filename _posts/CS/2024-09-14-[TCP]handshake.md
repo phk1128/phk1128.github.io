@@ -1,6 +1,6 @@
 ---
 title: 3-way handshake & 4-way handshake
-date: 2024-09-11
+date: 2024-09-14
 categories: [ CS, Network ]
 tags: [ 네트워크, network, CS, 3-way handshake, 4-way handshake ]
 image: assets/posts/img_12.png

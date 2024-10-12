@@ -1,6 +1,6 @@
 ---
 title: 영속성 컨텍스트 (Persistence Context)
-date: 2024-08-30
+date: 2024-08-23
 categories: [ JPA ]
 tags: [ JPA, ORM, 영속성, Persistence ]
 image: assets/posts/jpa_logo.jpeg

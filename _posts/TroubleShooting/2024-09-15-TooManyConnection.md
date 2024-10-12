@@ -1,6 +1,6 @@
 ---
 title: mysql ERROR 1040 (HY000) Too many connections
-date: 2024-09-13
+date: 2024-09-15
 categories: [ TroubleShooting ]
 tags: [ mysql, ERROR 1040, Too many connections, RDS ]
 image: assets/posts/img_15.png

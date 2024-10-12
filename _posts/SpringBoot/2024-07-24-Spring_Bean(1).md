@@ -1,6 +1,6 @@
 ---
 title: Spring 컨테이너와 빈 (1)
-date: 2024-08-30
+date: 2024-07-24
 categories: [ SpringBoot ]
 tags: [ SpringBoot,Spring Bean, Spring Container ]
 image: assets/posts/spring_logo.png
