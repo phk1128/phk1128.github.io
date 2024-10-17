@@ -176,3 +176,5 @@ Reverts (revert): 이전에 커밋된 변경 사항을 되돌린 경우 기록�
 > [AngularJS Git Commit Message Conventions](https://gist.github.com/stephenparish/9941e89d80e2bc58a153)
 > 
 > [우테코 7기 프리코스 1주차 미션](https://github.com/woowacourse-precourse/java-calculator-7)
+>
+> [우아한테크코스 4기 프리코스 후기 (2) - Commit Log 컨벤션](https://creampuffy.tistory.com/129)
