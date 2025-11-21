@@ -64,7 +64,7 @@ Session이 필요한 admin 사용자의 api 호출 횟수를 보면, 전체의 �
 
 위 상황을 종합했을때 Redis를 사용하는것은 비효율적이라고 판단을 했었고 기존 MySQL을 사용하는것으로 팀원들과 함께 결정했습니다.
 
-### ✅ Spring Session
+### ✅ Spring Session 학습
 ![img.png](/assets/posts/img_119.png)
 Spring에서 이러한 분산환경에서 Session을 어떻게 관리하는지 찾아보던 중, [Spring 공식 문서](https://docs.enterprise.spring.io/spring-session/reference/index.html?utm_source=chatgpt.com)에서 위와 같은 내용을 확인할 수 있었습니다.
 즉, Spring Session을 사용하면 세션관리를 DB에서 할 수 있다는 의미입니다. 그 동작 원리를 한번 알아보겠습니다.
